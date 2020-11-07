@@ -1,0 +1,7 @@
+{
+  "name": "FigmaLines",
+  "id": "898290195192846779",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
