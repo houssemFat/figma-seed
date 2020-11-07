@@ -1,12 +1,12 @@
 {
   "name": "lines",
   "version": "1.0.0",
-  "description": "Lines Figma Plugin",
+  "description": "Lines seed Figma Plugin",
   "main": "src/code.ts",
   "scripts": {
     "build": "webpack"
   },
-  "author": "HF",
+  "author": "Fathallah houssem",
   "license": "MIT",
   "devDependencies": {
     "@figma/plugin-typings": "^1.17.1",

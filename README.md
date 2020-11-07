@@ -1,44 +1,42 @@
-Below are the steps to get your plugin running. You can also find instructions at:
-
-  https://www.figma.com/plugin-docs/setup/
-
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
-
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
-
-  https://nodejs.org/en/download/
-
-Next, install TypeScript using the command:
-
-  npm install -g typescript
-
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
-
-  npm install --save-dev @figma/plugin-typings
-
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
-
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
-
-For more information, visit https://www.typescriptlang.org/
-
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
-
-We recommend writing TypeScript code using Visual Studio code:
-
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "tsc: watch - tsconfig.json". You will have to do this again every time
-    you reopen Visual Studio Code.
-
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+#### Seed figma plugin 
+#### This is a work in progress figma plugin
+A one click generator plugin for figma to cerate a system design for your app.
 
 
-## bundling with parcel
-Ther's an issue when running parcel with source in package.json , instead use this `parcel src/code.ts  src/ui.html --target main`
+* [x] Init
+* [ ] Colors palette
+* [ ] Typography 
+* [ ] Buttons
+* [ ] Inputs 
+* [ ] Charts (including [lines charts](http://line.380squares.xyz)) 
+* [ ] Icons
+* [ ] Patterns 
+
+If you will use or copy the template for your plugin, make sure to replace the `manifest.json` with the figma new manfiest json (generate by figma).
+  
+#### Install dependencies
+  `npm install`
+  
+### Build 
+
+The plugin use webpack to bundle the code source, run `npm run build` to create dist files.
+
+#### manifest.json
+The `manifest.json` file defines the plugin name and the code (js/css) locations. so, here, we specify the main js file and the ui file. 
+
+```
+{
+  "name": "YOU_PLUGIN_NAME",
+  "id": "plugin_id_generated_by",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
+```
+
+### Inline code in html 
+I tried to build this plugin following the webpack tutorial from figma, but the inline plugin used to put css in the html didn't work. So I copied the [inline plugin ](webpack/inline.plugin.js) from facebook [react-inline-plugin-tool](https://github.com/facebook/create-react-app/blob/master/packages/react-dev-utils/InlineChunkHtmlPlugin.js), i just copied the code to avoid installing all the package.
+  
+
+### Bundling with webpack 
+I used parcel before switching to webpack but it was complicated to add all necessary plugins to parcel which is supposed to work in mode 'out-of-the-box' 
