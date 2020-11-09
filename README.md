@@ -1,6 +1,6 @@
 #### Seed figma plugin 
-#### This is a work in progress figma plugin
-A one click generator plugin for figma to cerate a system design for your app.
+##### A work in progress figma plugin 
+A one click generator plugin for figma to create a system design for your app.
 
 
 * [x] Init

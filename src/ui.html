@@ -1,21 +1,52 @@
-
 <div class="container">
     <h2> Ui kit generator </h2>
-    <p>Colors : <input id="count_colors" value="5"></p>
-    <p>Colors variant : <input id="count_colors_variants" value="5"></p>
-    <p>Palette</p>
-    <div class="flex flex-align-center">
-        <div id="colors"></div>
-        <div class="color-item"></div>
-        <button id="add_color">Add color</button>
+    <div>
+        <ul class="tabs">
+            <li data-tab="tab_colors">Colors</li>
+            <li data-tab="tab_typography">Typo</li>
+            <li data-tab="tab_buttons">Buttons</li>
+            <li data-tab="tab_inputs">Inputs</li>
+            <li data-tab="tab_charts">Charts</li>
+            <li data-tab="tab_icons">Icons</li>
+            <li data-tab="tab_patterns">Patterns</li>
+        </ul>
     </div>
-    <p>Typography : <select>
-        <option selected>Select font</option>
-    </select></p>
 
-    <p>Buttons : <input type="checkbox" id="include_buttons"></p>
-    <p>Inputs : <input type="checkbox" id="include_inputs"></p>
-    <p>Errors : <input type="checkbox" id="include_errors"></p>
+
+    <div id="tab_colors" class="tab-content ">
+        <h3>Palette</h3>
+        Colors : <input id="count_colors" value="5">
+        <p>Colors variant : <input id="count_colors_variants" value="5"></p>
+        <div class="flex flex-align-center">
+            <div id="colors"></div>
+            <div class="color-item"></div>
+            <button id="add_color">Add color</button>
+        </div>
+    </div>
+
+    <div id="tab_typography" class="tab-content hidden">
+        <p>Typography : <select>
+            <option selected>Select font</option>
+        </select></p>
+    </div>
+    <div id="tab_buttons" class="tab-content hidden">
+        <p>Buttons : <input type="checkbox" id="include_buttons"></p>
+    </div>
+    <div id="tab_inputs" class="tab-content hidden">
+        <p>Include inputs : <input type="checkbox" id="include_inputs"></p>
+        <p>Include errors : <input type="checkbox" id="include_errors"></p>
+    </div>
+
+    <div id="tab_charts" class="tab-content hidden">
+        // TODO include charts
+    </div>
+    <div id="tab_icons" class="tab-content hidden">
+        // TODO include icons
+    </div>
+
+    <div id="tab_patterns" class="tab-content hidden">
+        // TODO include pattern
+    </div>
 
     <div class="flex w-full flex-justify-center">
         <button id="create">Create</button>

@@ -9,6 +9,7 @@
 import { drawPalette } from "./lib/palette";
 import { drawButtons } from "./lib/buttons";
 import { drawCharts } from "./lib/charts";
+import { drawTexts } from "./lib/texts";
 import { CHART_TYPE } from "./lib/types"
 
 
@@ -23,6 +24,8 @@ figma.ui.onmessage = msg => {
   if (msg.type === 'create') {
     const nodes: SceneNode[] = [];
     let info = msg.info;
+    //
+    console.log(info);
     // palette
     let palette = drawPalette(info.palette);
     palette.elements.map((el) => {
@@ -71,16 +74,22 @@ figma.ui.onmessage = msg => {
     if (info.buttons) {
       drawButtons(info.buttons)
     }
-    // inputs
 
+    // texts
+    if (info.texts) {
+      console.log('---drawing texts')
+      drawTexts().then(() => {
+        // Make sure to close the plugin when you're done. Otherwise the plugin will
+        // keep running, which shows the cancel button at the bottom of the screen.
+
+      })
+    }
 
     // inputs
 
     figma.currentPage.selection = nodes;
     figma.viewport.scrollAndZoomIntoView(nodes);
   }
-
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
   figma.closePlugin();
+
 };
