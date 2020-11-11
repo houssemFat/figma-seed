@@ -17,7 +17,7 @@ If you will use or copy the template for your plugin, make sure to replace the `
 #### Install dependencies
   `npm install`
   
-### Build 
+#### Build 
 
 The plugin use webpack to bundle the code source, run `npm run build` to create dist files.
 
